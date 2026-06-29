@@ -1,25 +1,60 @@
-const API_URL = "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnTM-aQZ4s70yvJ60FecOKOCbJs1wWFgnUb8aM5kZ2PH1DFR_R6qTPkSdYFgCtEf1VqS1CLnNDXmze3A6LunZsrTfjNFZj29lqKlDvlv4jMNnlHvMLcBwLlFlBngU2jJy_7grFPf4yyJg7au5Q9ecbKqDXkTR1zwzZmkBVepSIjUIPaCmVAXXJ2g4LLU0UF1Uux7CjfOmKKCCB63FrO5qbnhbxUDmaxTLWY3DVUMlJB6lCgBq65JV-z9Srvd9Hq9g7zQpY4ldGVmbph3Ie40cVP4m7i0DQ&lib=MH_7RUUP2ceuyrQh8UC6mIGf9ULt4oFEb";
+// ================================
+// Family Tree App
+// Version 1.0
+// ================================
 
+// Google Apps Script API
+const API_URL = "https://script.google.com/macros/s/AKfycbyT-GTuIcAxkkTNi5_c7GVhO6WrUMfEZ33T4U_NwVxa5VTtljsKrp1XwegEvsEYZHIn/exec";
+
+// Store all members
+let members = [];
+
+// Load data from Google Sheets
 async function loadMembers() {
 
-    try {
+  try {
 
-        const response = await fetch(API_URL);
+    const response = await fetch(API_URL);
 
-        const data = await response.json();
+    const data = await response.json();
 
-        document.getElementById("totalMembers").innerHTML = data.length - 1;
+    // Remove the header row
+    members = data.slice(1);
 
-        console.log(data);
+    // Display total members
+    document.getElementById("totalMembers").textContent = members.length;
 
-    } catch (err) {
+    console.log("Members Loaded:", members);
 
-        alert("Unable to load family members");
+  } catch (error) {
 
-        console.log(err);
+    console.error(error);
 
-    }
+    alert("Unable to connect to Google Sheets.");
+
+  }
 
 }
 
+// Show all members
+function showMembers() {
+
+  let html = "";
+
+  members.forEach(member => {
+
+    html += `
+      <div class="card">
+        <h3>👤 ${member[1]}</h3>
+        <p>${member[2]}</p>
+      </div>
+    `;
+
+  });
+
+  document.getElementById("memberList").innerHTML = html;
+
+}
+
+// Start App
 loadMembers();
