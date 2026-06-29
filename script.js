@@ -2,7 +2,7 @@
 // Family Tree App v1.2
 // =====================================
 
-const API_URL = "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnRgsep8Kz6iphSWzWzLIxe1_ckPsIAtVFMuOnEWqniEpSOIghz2N5DJ2-wlS1SVL6x4d8HrqJsUYsHMr4Wv3cWY6QclvkREMV3TAJC3Hnjh4u8zWk4YnLO42hCelJVzy3c3BGWczB0rZaakO1VbDJgHH9YBbzTE6x8O84ckoYhPN5jYNh8OBHjDM_LWC5zZ0yjL-tUm7tNxOHxSrrk05jaU55vbjsrlc8EPX3bfnKqW-Iaur4HLVcr2djz1nr64swQGvoWvY55tTFynLiUlJ6OBK9TrhQ&lib=MH_7RUUP2ceuyrQh8UC6mIGf9ULt4oFEb";
+const API_URL = "https://script.google.com/macros/s/AKfycbyoH4S5ogsL9gRZkit60ejsZNS7fLH1s34_EZ5shmCwrqcQISgvx7IKS2etwneXPFyG/exec";
 
 let members = [];
 
