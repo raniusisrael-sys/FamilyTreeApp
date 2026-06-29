@@ -1,12 +1,12 @@
 // =====================================
-// Family Tree App v1.2
+// Family Tree App v2.0
 // =====================================
 
-const API_URL = "https://script.google.com/macros/s/AKfycbzGoEyCSSLj0O2rEX9sPhKjeYu7utFZvmFtraA-yJkuQ6s4UFq-TKUDwSCx0RxVnAsE/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyT-GTuIcAxkkTNi5_c7GVhO6WrUMfEZ33T4U_NwVxa5VTtljsKrp1XwegEvsEYZHIn/exec";
 
 let members = [];
 
-// Load members from Google Sheets
+// Load members
 async function loadMembers() {
 
     try {
@@ -17,7 +17,7 @@ async function loadMembers() {
 
         document.getElementById("totalMembers").textContent = members.length;
 
-        console.log(members);
+        showMembers();
 
     } catch (error) {
 
@@ -29,7 +29,7 @@ async function loadMembers() {
 
 }
 
-// Display members
+// Show Members
 function showMembers() {
 
     let html = "";
@@ -38,13 +38,17 @@ function showMembers() {
 
         html += `
         <div class="card">
-            <h3>👤 ${member[1]}</h3>
-            <p>Gender : ${member[2]}</p>
-            <p>Occupation : ${member[9]}</p>
 
-            <button onclick="viewMember(${member[0]})">
+            <h3>👤 ${member.Name}</h3>
+
+            <p>Gender : ${member.Gender}</p>
+
+            <p>Occupation : ${member.Occupation}</p>
+
+            <button onclick="viewMember(${member.ID})">
                 View Profile
             </button>
+
         </div>
         `;
 
@@ -54,26 +58,28 @@ function showMembers() {
 
 }
 
-// View member
+// View Member
 function viewMember(id){
 
-    const member = members.find(m => m[0] == id);
+    const member = members.find(m => m.ID == id);
 
     if(!member) return;
 
-    alert(
-`Name : ${member[1]}
+    alert(`
 
-Gender : ${member[2]}
+Name : ${member.Name}
 
-DOB : ${member[3]}
+Gender : ${member.Gender}
 
-Occupation : ${member[9]}
+DOB : ${member.DOB}
 
-Address : ${member[10]}
+Occupation : ${member.Occupation}
 
-Mobile : ${member[7]}`
-    );
+Address : ${member.Address}
+
+Mobile : ${member.Mobile}
+
+`);
 
 }
 
