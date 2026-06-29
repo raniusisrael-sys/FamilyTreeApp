@@ -37,11 +37,12 @@ function showMembers() {
     members.forEach(member => {
 
         html += `
-        <div class="card member-card">
-            <h3>👤 ${member.Name}</h3>
-            <p>Gender : ${member.Gender}</p>
-            <p>Occupation : ${member.Occupation}</p>
-            <button onclick="viewMember('${member.ID}')">
+        <div class="card">
+            <h3>👤 ${member[1]}</h3>
+            <p>Gender : ${member[2]}</p>
+            <p>Occupation : ${member[9]}</p>
+
+            <button onclick="viewMember(${member[0]})">
                 View Profile
             </button>
         </div>
@@ -56,22 +57,22 @@ function showMembers() {
 // View member
 function viewMember(id){
 
-    const member = members.find(m => String(m.ID) === String(id));
+    const member = members.find(m => m[0] == id);
 
     if(!member) return;
 
     alert(
-`Name : ${member.Name}
+`Name : ${member[1]}
 
-Gender : ${member.Gender}
+Gender : ${member[2]}
 
-DOB : ${member.DOB}
+DOB : ${member[3]}
 
-Occupation : ${member.Occupation}
+Occupation : ${member[9]}
 
-Address : ${member.Address}
+Address : ${member[10]}
 
-Mobile : ${member.Mobile}`
+Mobile : ${member[7]}`
     );
 
 }
