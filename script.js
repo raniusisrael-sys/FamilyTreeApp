@@ -16,6 +16,12 @@ async function loadMembers() {
         members = await response.json();
 
         document.getElementById("totalMembers").textContent = members.length;
+        // Count families (based on spouse)
+const families = members.filter(m => m["Spouse ID"]).length;
+
+document.getElementById("familyCount").textContent = families;
+
+document.getElementById("birthdayCount").textContent = "0";
 
         showMembers();
 
