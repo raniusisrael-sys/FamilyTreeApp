@@ -17,32 +17,88 @@
 
 <div class="container">
 
-    <div class="card">
-        <h2>Total Members</h2>
-        <h1 id="totalMembers">0</h1>
+    <div class="hero">
+
+        <div class="hero-icon">🌳</div>
+
+        <h2>Family Heritage</h2>
+
+        <p>Preserving Our Legacy Forever</p>
+
+    </div>
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <h3 id="totalMembers">0</h3>
+            <span>Members</span>
+        </div>
+
+        <div class="stat-card">
+            <h3 id="familyCount">0</h3>
+            <span>Families</span>
+        </div>
+
+        <div class="stat-card">
+            <h3 id="birthdayCount">0</h3>
+            <span>Birthdays</span>
+        </div>
+
     </div>
 
     <input
+        id="searchBox"
         type="text"
-        placeholder="🔍 Search Member..."
-        id="searchBox">
+        placeholder="🔍 Search Family Member">
 
-    <button onclick="showMembers()">
-👨 Members
-</button>
+    <div class="menu">
 
-<div id="memberList"></div>
+        <div class="menu-card" onclick="showMembers()">
 
-    <button>🌳 Family Tree</button>
+            👨
 
-    <button>➕ Add Member</button>
+            <h3>Members</h3>
 
-    <button>📊 Statistics</button>
+            <p>View all family members</p>
 
-    <button>⚙️ Settings</button>
+        </div>
+
+        <div class="menu-card">
+
+            🌳
+
+            <h3>Family Tree</h3>
+
+            <p>Explore relationships</p>
+
+        </div>
+
+        <div class="menu-card">
+
+            📷
+
+            <h3>Gallery</h3>
+
+            <p>Family memories</p>
+
+        </div>
+
+        <div class="menu-card">
+
+            📊
+
+            <h3>Statistics</h3>
+
+            <p>Insights</p>
+
+        </div>
+
+    </div>
+
+    <div id="memberList"></div>
 
 </div>
-
+    
 <footer>
     Developed by ❤️ Ranius Israel
 </footer>
