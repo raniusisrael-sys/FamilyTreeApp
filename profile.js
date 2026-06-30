@@ -25,22 +25,28 @@ async function loadProfile() {
         }
 
         document.getElementById("profileCard").innerHTML = `
-            <div class="card">
 
-                <h2>👤 ${member.Name}</h2>
+<div class="card profile-card">
 
-                <p><b>Gender</b><br>${member.Gender || "-"}</p>
+<img
+class="profile-photo"
+src="${member["Photo URL"] || "https://cdn-icons-png.flaticon.com/512/149/149071.png"}">
 
-                <p><b>Date of Birth</b><br>${member.DOB || "-"}</p>
+<h2>${member.Name}</h2>
 
-                <p><b>Occupation</b><br>${member.Occupation || "-"}</p>
+<p>👤 ${member.Gender || "-"}</p>
 
-                <p><b>Mobile</b><br>${member.Mobile || "-"}</p>
+<p>🎂 ${member.DOB || "-"}</p>
 
-                <p><b>Address</b><br>${member.Address || "-"}</p>
+<p>💼 ${member.Occupation || "-"}</p>
 
-            </div>
-        `;
+<p>📞 ${member.Mobile || "-"}</p>
+
+<p>📍 ${member.Address || "-"}</p>
+
+</div>
+
+`;
 
     } catch (err) {
 
