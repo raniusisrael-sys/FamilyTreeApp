@@ -67,25 +67,9 @@ function showMembers() {
 // View Member
 function viewMember(id){
 
-    const member = members.find(m => m.ID == id);
+localStorage.setItem("selectedMember", id);
 
-    if(!member) return;
-
-    alert(`
-
-Name : ${member.Name}
-
-Gender : ${member.Gender}
-
-DOB : ${member.DOB}
-
-Occupation : ${member.Occupation}
-
-Address : ${member.Address}
-
-Mobile : ${member.Mobile}
-
-`);
+window.location = "profile.html";
 
 }
 
