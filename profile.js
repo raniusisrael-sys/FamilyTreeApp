@@ -3,43 +3,43 @@ const API_URL =
 
 async function loadProfile() {
 
-    const id = Number(localStorage.getItem("selectedMember"));
-
-    if (!id) {
-        document.getElementById("profileCard").innerHTML =
-        "<div class='card'><h2>No member selected.</h2></div>";
-        return;
-    }
-
     try {
 
-        const res = await fetch(API_URL);
-        const members = await res.json();
+        const id = Number(localStorage.getItem("selectedMember"));
+
+        if (!id) {
+            document.getElementById("profileCard").innerHTML =
+                "<h2>No member selected.</h2>";
+            return;
+        }
+
+        const response = await fetch(API_URL);
+        const members = await response.json();
 
         const member = members.find(m => Number(m.ID) === id);
 
         if (!member) {
             document.getElementById("profileCard").innerHTML =
-            "<div class='card'><h2>Member not found.</h2></div>";
+                "<h2>Member not found.</h2>";
             return;
         }
 
         document.getElementById("profileCard").innerHTML = `
-        <div class="card">
+            <div class="card">
 
-            <h2>👤 ${member.Name}</h2>
+                <h2>👤 ${member.Name}</h2>
 
-            <p><b>Gender</b><br>${member.Gender || "-"}</p>
+                <p><b>Gender</b><br>${member.Gender || "-"}</p>
 
-            <p><b>DOB</b><br>${member.DOB || "-"}</p>
+                <p><b>Date of Birth</b><br>${member.DOB || "-"}</p>
 
-            <p><b>Occupation</b><br>${member.Occupation || "-"}</p>
+                <p><b>Occupation</b><br>${member.Occupation || "-"}</p>
 
-            <p><b>Mobile</b><br>${member.Mobile || "-"}</p>
+                <p><b>Mobile</b><br>${member.Mobile || "-"}</p>
 
-            <p><b>Address</b><br>${member.Address || "-"}</p>
+                <p><b>Address</b><br>${member.Address || "-"}</p>
 
-        </div>
+            </div>
         `;
 
     } catch (err) {
@@ -47,7 +47,7 @@ async function loadProfile() {
         console.error(err);
 
         document.getElementById("profileCard").innerHTML =
-        "<div class='card'><h2>Unable to load profile.</h2></div>";
+            "<h2>Unable to load profile.</h2>";
 
     }
 
