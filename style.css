@@ -134,3 +134,17 @@ footer{
 .menu-card h3{
     margin:10px 0;
 }
+
+.profile-card{
+    text-align:center;
+}
+
+.profile-photo{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    margin:20px auto;
+    display:block;
+    border:5px solid #2e7d32;
+}
